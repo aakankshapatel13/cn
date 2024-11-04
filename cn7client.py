@@ -5,7 +5,7 @@ udp_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server_address = ('localhost', 8080)
 
 # Send the first file 'samplevideo.mp4' in chunks
-with open('video.mp4', 'rb') as f:
+with open('my.mp4', 'rb') as f:
     chunk = f.read(4096)
     while chunk:
         udp_client.sendto(chunk, server_address)
