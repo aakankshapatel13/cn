@@ -1,4 +1,3 @@
-
 import socket
 import os
 import subprocess
@@ -12,8 +11,8 @@ udp_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp_server.bind(('localhost', 8080))
 print("UDP server listening for file...")
 
-filename = 'video.mp4'
-
+filename = 'my.mp4'
+file2 = 'audio.mp3'
 with open(filename, 'wb') as f:
     while True:
         data, client_address = udp_server.recvfrom(4096)
@@ -32,6 +31,7 @@ time.sleep(WAIT_TIME)
 try:
     if os.name == 'nt':  # For Windows
         os.startfile(filename)
+        os.startfile(file2)
     elif os.name == 'posix':  # For macOS and Linux
         subprocess.run(['open', filename])  # For macOS
         # subprocess.run(['xdg-open', filename])  # For Linux
